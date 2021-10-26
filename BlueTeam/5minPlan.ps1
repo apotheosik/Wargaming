@@ -10,6 +10,8 @@
 
 #view processes paths, owner, and runtime (if infra is not suspended before comp)
 Get-Process * -IncludeUserName | Format-Table Id, ProcessName, Path, UserName, StartTime
+#kill proceses
+#Stop-Process -ID PID -Force
 
 #disconnect all established connections
 Net Use * /delete
