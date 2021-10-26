@@ -17,8 +17,11 @@ Get-Process * -IncludeUserName | Format-Table Id, ProcessName, Path, UserName, S
 Net Use * /delete
 
 #change password
-Set-LocalUser -Name Administrator -Password Apotheosik
-Set-LocalUser -Name LocalGuard -Password Apotheosik
+$Password = Read-Host -AsSecureString
+Set-LocalUser -Name Administrator -Password $Password
+Set-LocalUser -Name LocalGuard -Password $Password
+#Computer Configuration → Administrative Templates → Windows Components → Remote Desktop Services → Remote Desktop Session Host → Session Time Limit
+#Disable-LocalUser -Name x
 
 #show other users
 Get-LocalUser | Select *
